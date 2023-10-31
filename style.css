@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Metal+Mania&display=swap');
 
-
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "Metal Mania";
-   
+
 }
 
 body {
     width: 100%;
+    background-color: rgb(48, 48, 48);
 
 }
 
@@ -22,8 +21,10 @@ header {
     flex-direction: column;
     align-items: center;
 }
-header h1{
+
+header h1 {
     font-size: 80px;
+    color: white;
 }
 
 header form {
@@ -46,9 +47,13 @@ form div {
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: 20px;
-    
+    width: 80%;
+    margin: auto;
+
 }
-.container p, .container h4{
+
+.container p,
+.container h4 {
     font-family: "Acme";
 }
 
@@ -68,6 +73,7 @@ form div {
 
 .front,
 .back {
+    border-radius: 10px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -91,13 +97,69 @@ img {
 }
 
 .front span {
-    background-color: aqua;
+    background-color: rgb(49, 49, 49);
     width: 100%;
     text-align: center;
     padding: 2px 0;
+    color: white;
+    margin-top: -20px;
 }
 
 .sub-container:hover>.card-container {
     transform: rotateY(180deg);
 
+}
+
+.loder {
+    margin: 0;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    display: none;
+}
+
+.pokemon {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50%);
+    border-radius: 50%;
+    border: 8px solid black;
+    animation: spin 1s linear infinite;
+}
+
+.pokemon::before {
+    content: '';
+    position: absolute;
+    height: 8px;
+    width: 100%;
+    background: black;
+    top: 50%;
+    transform: translatey(-50%);
+}
+
+.pokemon::after {
+    content: '';
+    position: absolute;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 0 8px black, inset 0 0 0 10px white, inset 0 0 0 12px black;
+
+}
+
+/* Spin Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
